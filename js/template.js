@@ -1,6 +1,6 @@
 /* global TrelloPowerUp */
 
-var WHITE_ICON = './images/icon-white.svg';
+var WHITE_ICON = './images/logo-small.png';
 var GRAY_ICON = './images/icon-gray.svg';
 
 var parkMap = {
@@ -192,7 +192,7 @@ TrelloPowerUp.initialize({
   'board-buttons': function(t, options){
     return [{
       icon: WHITE_ICON,
-      text: 'Template',
+      text: 'TimeTracker Board Menú',
       callback: boardButtonCallback
     }];
   },
