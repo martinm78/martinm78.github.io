@@ -1,13 +1,11 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
 
-var oauthUrl = 'https://trello.com/1/authorize?expiration=never' +
-  '&name=[APPNAME]&scope=read&key=[APIKEY]&callback_method=fragment' +
-  '&return_url=[RETURNURL]';
+//var oauthUrl = 'https://trello.com/1/authorize?expiration=never' +
+//  '&name=[APPNAME]&scope=read&key=[APIKEY]&callback_method=fragment' +
+//  '&return_url=[RETURNURL]';
   
-  var oauthUrl = 'http://webexport.com.ar/lavacaclub/be/public/login' +
-  '&name=[APPNAME]&scope=read&key=[APIKEY]&callback_method=fragment' +
-  '&return_url=[RETURNURL]';
+  var oauthUrl = 'http://webexport.com.ar/lavacaclub/be/public/login';
   
   
   
