@@ -24,7 +24,7 @@ var authBtn = document.getElementById('authorize');
 
 authBtn.addEventListener('click', function() {
 	$.ajax({
-		url:"http://ceivac.com.ar/ajax.php",
+		url:"https://martinm78.github.io/ajax.html",
 		dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
 		success:function(json){
 			// do stuff with json (in this case an array)
