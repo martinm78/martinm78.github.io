@@ -183,7 +183,7 @@ TrelloPowerUp.initialize({
   'card-buttons': function(t, options) {
     return [{
       icon: WHITE_ICON,
-      text: 'WE TimeTracker',
+      text: 'TimeTracker',
       callback: cardButtonCallback
     }];
   },
