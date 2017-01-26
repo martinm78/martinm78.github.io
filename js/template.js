@@ -112,16 +112,10 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
-  return [{
-    icon: WHITE_ICON,
-    text: 'Button Text',
-    callback: function(t){
-      return t.popup({
-        title: "Autentic en WE TimeTracker",
+  return t.popup({
+        title: "Card Button Popup",
         url: './auth-popup.html'
       });
-    }
-  }];
 };
 
 TrelloPowerUp.initialize({
