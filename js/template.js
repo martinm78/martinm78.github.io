@@ -117,7 +117,7 @@ var cardButtonCallback = function(t){
     text: 'Button Text',
     callback: function(t){
       return t.popup({
-        title: "Autenticación en WE TimeTracker",
+        title: "Autentic en WE TimeTracker",
         url: './auth-popup.html'
       });
     }
