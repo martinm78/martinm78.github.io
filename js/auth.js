@@ -34,11 +34,11 @@ authBtn.addEventListener('click', function() {
       return t.set('board', 'private', 'token', token);
     });
   })
-  .then(function() {
+  .then(function(v) {
 	console.log('then closePopup');
     // now that the token is stored, we can close this popup
     // you might alternatively choose to open a new popup
-		console.log(this.token);
+		console.log(v);
 	$.ajax({
 		
 		url:"https://martinm78.github.io/ajax.html?token="+t.get('board', 'private', 'token'),
