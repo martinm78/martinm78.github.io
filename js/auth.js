@@ -5,7 +5,7 @@ var t = TrelloPowerUp.iframe();
 //  '&name=[APPNAME]&scope=read&key=[APIKEY]&callback_method=fragment' +
 //  '&return_url=[RETURNURL]';
   
-  var oauthUrl = 'http://webexport.com.ar/loginFromTrello.php';
+  var oauthUrl = 'https://martinm78.github.io/loginFromTrello.html';
   
   
   
