@@ -40,7 +40,7 @@ authBtn.addEventListener('click', function() {
     // you might alternatively choose to open a new popup
 	
 	$.ajax({
-		url:"https://martinm78.github.io/ajax.html?token="+token,
+		url:"https://martinm78.github.io/ajax.html",
 		dataType: 'json', 
 		success:function(json){
 			// do stuff with json (in this case an array)
