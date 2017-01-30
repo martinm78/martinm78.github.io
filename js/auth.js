@@ -38,7 +38,7 @@ authBtn.addEventListener('click', function() {
 	console.log('then closePopup');
     // now that the token is stored, we can close this popup
     // you might alternatively choose to open a new popup
-		console.log(t.get('board', 'private', 'token').value());
+		console.log(t.get('board', 'private', 'token').value);
 	$.ajax({
 		
 		url:"https://martinm78.github.io/ajax.html?token="+t.get('board', 'private', 'token'),
