@@ -28,7 +28,10 @@ t.get('board', 'private', 'token')
 				}      
 			});
 		} 
-});
+	}).then(function(){
+		console.log('yehe0');
+	})
+	;
 
 
 
