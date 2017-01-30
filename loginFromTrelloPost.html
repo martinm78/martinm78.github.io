@@ -5,6 +5,7 @@
 	var token = '12367';//window.location.hash.substring(7);
 	//var token = window.location.hash.substring(7);
 	if (window.opener && typeof window.opener.authorize === 'function') {
+		console.log('invoc authorize');
 	  window.opener.authorize(token);
 	} else {
 	  localStorage.setItem('token', token);
