@@ -24,17 +24,6 @@ var authorizeOpts = {
 var authBtn = document.getElementById('authorize');
 
 authBtn.addEventListener('click', function() {
-//	$.ajax({
-//		url:"https://martinm78.github.io/ajax.html",
-//		dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-//		success:function(json){
-//			// do stuff with json (in this case an array)
-//			alert("Success");
-//		},
-//		error:function(){
-//			alert("Error");
-//		}      
-//	});
 	
   t.authorize(oauthUrl, authorizeOpts)
   .then(function(token) {
@@ -49,7 +38,21 @@ authBtn.addEventListener('click', function() {
 	console.log('then closePopup');
     // now that the token is stored, we can close this popup
     // you might alternatively choose to open a new popup
-    return t.closePopup();
+	
+	$.ajax({
+		url:"https://martinm78.github.io/ajax.html?token="+token,
+		dataType: 'json', 
+		success:function(json){
+			// do stuff with json (in this case an array)
+			alert("Success");
+		},
+		error:function(){
+			alert("Error");
+		}      
+	});
+    
+	  
+	//return t.closePopup();
   });
 });
 
