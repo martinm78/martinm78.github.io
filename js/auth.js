@@ -11,7 +11,8 @@ var t = TrelloPowerUp.iframe();
   
 
 var tokenLooksValid = function(token) {
-  return /^[0-9a-f]{64}$/.test(token);
+  //return /^[0-9a-f]{64}$/.test(token);
+  return true;
 }
 
 var authorizeOpts = {
