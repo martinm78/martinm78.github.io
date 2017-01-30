@@ -40,28 +40,30 @@ authBtn.addEventListener('click', function() {
     // now that the token is stored, we can close this popup
     // you might alternatively choose to open a new popup
 	t.get('organization', 'private', 'token')
-			.then(function(v){
-				console.log(v);
+		.then(function(token){
+			$.ajax({
+				url:"https://martinm78.github.io/ajax.html?token="+token,
+				dataType: 'json', 
+				success:function(json){
+					// do stuff with json (in this case an array)
+					//alert("Success");
+					console.log("Success");
+					return t.closePopup();
+				},
+				error:function(jqXHR,textStatus){
+					//alert("Error:"+textStatus);
+					console.log("Error:"+textStatus);
+				}      
 			});
-	
-	
-		
-		
-	$.ajax({
-		
-		url:"https://martinm78.github.io/ajax.html?token="+t.get('board', 'private', 'token'),
-		dataType: 'json', 
-		success:function(json){
-			// do stuff with json (in this case an array)
-			alert("Success");
-		},
-		error:function(jqXHR,textStatus){
-			alert("Error:"+textStatus);
-		}      
 	});
+	
+	
+		
+		
+	
     
 	  
-	//return t.closePopup();
+	
   });
 });
 
