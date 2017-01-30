@@ -23,30 +23,32 @@ var authorizeOpts = {
 var authBtn = document.getElementById('authorize');
 
 authBtn.addEventListener('click', function() {
-	$.ajax({
-		url:"https://martinm78.github.io/ajax.html",
-		dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-		success:function(json){
-			// do stuff with json (in this case an array)
-			alert("Success");
-		},
-		error:function(){
-			alert("Error");
-		}      
-	});
+//	$.ajax({
+//		url:"https://martinm78.github.io/ajax.html",
+//		dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+//		success:function(json){
+//			// do stuff with json (in this case an array)
+//			alert("Success");
+//		},
+//		error:function(){
+//			alert("Error");
+//		}      
+//	});
 	
-//  t.authorize(oauthUrl, authorizeOpts)
-//  .then(function(token) {
-//    return t.set('organization', 'private', 'token', token)
-//    .catch(t.NotHandled, function() {
-//      // fall back to storing at board level
-//      return t.set('board', 'private', 'token', token);
-//    });
-//  })
-//  .then(function() {
-//    // now that the token is stored, we can close this popup
-//    // you might alternatively choose to open a new popup
-//    return t.closePopup();
-//  });
+  t.authorize(oauthUrl, authorizeOpts)
+  .then(function(token) {
+	console.log('then token:' + token);
+    return t.set('organization', 'private', 'token', token)
+    .catch(t.NotHandled, function() {
+      // fall back to storing at board level
+      return t.set('board', 'private', 'token', token);
+    });
+  })
+  .then(function() {
+	console.log('then closePopup');
+    // now that the token is stored, we can close this popup
+    // you might alternatively choose to open a new popup
+    return t.closePopup();
+  });
 });
 
