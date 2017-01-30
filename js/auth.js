@@ -48,7 +48,15 @@ authBtn.addEventListener('click', function() {
 					// do stuff with json (in this case an array)
 					//alert("Success");
 					console.log("Success");
-					return t.closePopup();
+					//return t.closePopup();
+					//return t.closePopup();
+					t.overlay({
+						url: './overlay.html',
+						args: { rand: (Math.random() * 100).toFixed(0) }
+					  })
+					  .then(function(){
+						return t.closePopup();
+					  });
 				},
 				error:function(jqXHR,textStatus){
 					//alert("Error:"+textStatus);
