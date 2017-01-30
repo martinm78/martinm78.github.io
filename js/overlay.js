@@ -25,3 +25,8 @@ document.addEventListener('keyup', function(e) {
     t.closeOverlay().done();
   }
 });
+
+// close overlay if user presses escape key
+document.getElementById('cancelar').addEventListener('click', function(e) {
+	t.closeOverlay().done();
+});

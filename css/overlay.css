@@ -11,3 +11,9 @@ body {
   max-width: 600px;
   max-height: 90%;
 }
+
+img {
+  border: 0 none;
+  vertical-align: middle;
+  width: 25px;
+}
