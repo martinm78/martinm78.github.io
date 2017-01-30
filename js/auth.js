@@ -31,14 +31,22 @@ authBtn.addEventListener('click', function() {
     return t.set('organization', 'private', 'token', token)
     .catch(t.NotHandled, function() {
       // fall back to storing at board level
+		console.log('fall back to storing at board level');
       return t.set('board', 'private', 'token', token);
     });
   })
-  .then(function(v) {
+  .then(function() {
 	console.log('then closePopup');
     // now that the token is stored, we can close this popup
     // you might alternatively choose to open a new popup
-		console.log(v);
+	t.get('organization', 'private', 'token')
+			.then(function(v){
+				console.log(v);
+			});
+	
+	
+		
+		
 	$.ajax({
 		
 		url:"https://martinm78.github.io/ajax.html?token="+t.get('board', 'private', 'token'),
