@@ -8,6 +8,7 @@ t.get('board', 'private', 'token')
 		
 		if (token) {
 			$.ajax({
+				async:false,
 				url:"https://martinm78.github.io/ajax2.html?isTokenOk="+token,
 				dataType: 'json', 
 				success:function(json){
