@@ -1,76 +1,39 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
 
-//t
-//.set('board', 'private', 'token', null)
-//.catch(t.NotHandled, function() {
-//	// fall back to storing at board level
-//	  console.log('Error. Fall back to storing at board level to NULL');
-//	//return t.set('board', 'private', 'token', token);
-//})
-//.then(function(){
-//	console.log('unset token');
-//})
-//;
-
 t.get('board', 'private', 'token')
 	.then(function(token){
-		var tokenOk = false;
-		var tokenMsg = '';
-		
-		if (token) {
-			$.ajax({
-				async:false,
-				url:"https://martinm78.github.io/ajax2.html?isTokenOk="+token,
-				dataType: 'json', 
-				success:function(json){
-					
-					if (0 == json.status) {
-						tokenOk = true;
-					} else {
-						tokenMsg = 'Invalid Token';
-					}
-
-					
-//					return new 
-//						Promise(
-//							function(resolve, reject) {
-//								if (0 == json.status) {
-//									resolve('Token Ok!');
-//								} else {
-//									reject('Invalid Token');
-//								}
-//								
-//							}
-//						);
-					//return json.status;
-//					if (0 == json.status) {
-//						// do stuff with json (in this case an array)
-//						console.log("Success0");
-//						t.overlay({
-//							url: './overlay.html',
-//							args: { rand: (Math.random() * 100).toFixed(0) }
-//						  })
-//						  .then(function(){
-//							return t.closePopup();
-//						  });
-//					} else {
-//						$('#authorize').show();
-//					}
-				},
-				error:function(jqXHR,textStatus){
-					console.log("Error0:"+textStatus);
-				}      
-			});
-			
-		} else {
-			//$('#authorize').show();
-			tokenMsg = 'Token not found';
-		} 
 		
 		return new 
 			Promise(
 				function(resolve, reject) {
+					
+					var tokenOk = false;
+					var tokenMsg = '';
+
+					if (token) {
+						$.ajax({
+							async:false,
+							url:"https://martinm78.github.io/ajax2.html?isTokenOk="+token,
+							dataType: 'json', 
+							success:function(json){
+
+								if (0 == json.status) {
+									tokenOk = true;
+								} else {
+									tokenMsg = 'Invalid Token';
+								}
+							},
+							error:function(jqXHR,textStatus){
+								console.log("Error0:"+textStatus);
+							}      
+						});
+
+					} else {
+						tokenMsg = 'Token not found';
+					} 
+					
+					
 					if (tokenOk) {
 						resolve('Token Ok!');
 					} else {
