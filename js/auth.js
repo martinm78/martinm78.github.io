@@ -13,9 +13,6 @@ var t = TrelloPowerUp.iframe();
 //})
 //;
 
-
-
-
 t.get('board', 'private', 'token')
 	.then(function(token){
 		
@@ -25,29 +22,50 @@ t.get('board', 'private', 'token')
 				url:"https://martinm78.github.io/ajax2.html?isTokenOk="+token,
 				dataType: 'json', 
 				success:function(json){
-					if (0 == json.status) {
-						// do stuff with json (in this case an array)
-						console.log("Success0");
-						t.overlay({
-							url: './overlay.html',
-							args: { rand: (Math.random() * 100).toFixed(0) }
-						  })
-						  .then(function(){
-							return t.closePopup();
-						  });
-					} else {
-						$('#authorize').show();
-					}
+					return new 
+						Promise(
+							function(resolve, reject) {
+								if (0 == json.status) {
+									resolve('Token Ok!');
+								} else {
+									reject('Invalid Token');
+								}
+								
+							}
+						);
+					//return json.status;
+//					if (0 == json.status) {
+//						// do stuff with json (in this case an array)
+//						console.log("Success0");
+//						t.overlay({
+//							url: './overlay.html',
+//							args: { rand: (Math.random() * 100).toFixed(0) }
+//						  })
+//						  .then(function(){
+//							return t.closePopup();
+//						  });
+//					} else {
+//						$('#authorize').show();
+//					}
 				},
 				error:function(jqXHR,textStatus){
 					console.log("Error0:"+textStatus);
 				}      
 			});
 		} else {
-			$('#authorize').show();
+			//$('#authorize').show();
+			return new 
+				Promise(
+					function(resolve, reject) {
+						reject('Token not found');
+					}
+				);
 		} 
-	}).then(function(){
-		console.log('yehe0');
+	}).then(function(msg){
+		console.log(msg);
+	}).catch(function(msg){
+		console.log(msg);
+		$('#authorize').show();
 	})
 	;
 
