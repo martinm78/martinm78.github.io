@@ -22,12 +22,16 @@ t.get('board', 'private', 'token')
 						  .then(function(){
 							return t.closePopup();
 						  });
+					} else {
+						$('#authorize').show();
 					}
 				},
 				error:function(jqXHR,textStatus){
 					console.log("Error0:"+textStatus);
 				}      
 			});
+		} else {
+			$('#authorize').show();
 		} 
 	}).then(function(){
 		console.log('yehe0');
