@@ -44,13 +44,24 @@ t.get('board', 'private', 'token')
 			)
 		;
 		
-	}).catch(function(msg){
-		console.log(msg);
-		$('#authorize').show();
-	}).then(function(msg){
-		console.log('yehe: ' + msg);
-	
-	});
+	})
+	.then(
+		function(msg){
+			console.log(msg);
+		},
+		function(msg){
+			console.log('Error: ' + msg);
+		}
+	)
+	;
+		
+//		.catch(function(msg){
+//		console.log(msg);
+//		$('#authorize').show();
+//	}).then(function(msg){
+//		console.log('yehe: ' + msg);
+//	
+//	});
 
 
 
