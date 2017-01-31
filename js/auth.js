@@ -48,7 +48,7 @@ t.get('board', 'private', 'token')
 		console.log(msg);
 		$('#authorize').show();
 	}).then(function(msg){
-		console.log(msg);
+		console.log('yehe: ' + msg);
 	
 	});
 
