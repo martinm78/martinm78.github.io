@@ -1,17 +1,17 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
 
-t
-.set('board', 'private', 'token', null)
-.catch(t.NotHandled, function() {
-	// fall back to storing at board level
-	  console.log('Error. Fall back to storing at board level to NULL');
-	//return t.set('board', 'private', 'token', token);
-})
-.then(function(){
-	console.log('unset token');
-})
-;
+//t
+//.set('board', 'private', 'token', null)
+//.catch(t.NotHandled, function() {
+//	// fall back to storing at board level
+//	  console.log('Error. Fall back to storing at board level to NULL');
+//	//return t.set('board', 'private', 'token', token);
+//})
+//.then(function(){
+//	console.log('unset token');
+//})
+//;
 
 
 
