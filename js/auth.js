@@ -50,20 +50,11 @@ t.get('board', 'private', 'token')
 			console.log(msg);
 		},
 		function(msg){
-			console.log('Error: ' + msg);
+			console.log(msg);
+			$('#authorize').show();
 		}
 	)
 	;
-		
-//		.catch(function(msg){
-//		console.log(msg);
-//		$('#authorize').show();
-//	}).then(function(msg){
-//		console.log('yehe: ' + msg);
-//	
-//	});
-
-
 
 
 
