@@ -87,7 +87,7 @@ t.get('board', 'private', 'token')
 	}).then(function(msg){
 		console.log(msg);
 	
-	;
+	});
 
 
 
