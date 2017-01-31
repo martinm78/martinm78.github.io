@@ -15,6 +15,8 @@ var t = TrelloPowerUp.iframe();
 
 t.get('board', 'private', 'token')
 	.then(function(token){
+		var tokenOk = false;
+		var tokenMsg = '';
 		
 		if (token) {
 			$.ajax({
@@ -22,17 +24,25 @@ t.get('board', 'private', 'token')
 				url:"https://martinm78.github.io/ajax2.html?isTokenOk="+token,
 				dataType: 'json', 
 				success:function(json){
-					return new 
-						Promise(
-							function(resolve, reject) {
-								if (0 == json.status) {
-									resolve('Token Ok!');
-								} else {
-									reject('Invalid Token');
-								}
-								
-							}
-						);
+					
+					if (0 == json.status) {
+						tokenOk = true;
+					} else {
+						tokenMsg = 'Invalid Token';
+					}
+
+					
+//					return new 
+//						Promise(
+//							function(resolve, reject) {
+//								if (0 == json.status) {
+//									resolve('Token Ok!');
+//								} else {
+//									reject('Invalid Token');
+//								}
+//								
+//							}
+//						);
 					//return json.status;
 //					if (0 == json.status) {
 //						// do stuff with json (in this case an array)
@@ -52,21 +62,31 @@ t.get('board', 'private', 'token')
 					console.log("Error0:"+textStatus);
 				}      
 			});
+			
 		} else {
 			//$('#authorize').show();
-			return new 
-				Promise(
-					function(resolve, reject) {
-						reject('Token not found');
-					}
-				);
+			tokenMsg = 'Token not found';
 		} 
-	}).then(function(msg){
-		console.log(msg);
+		
+		return new 
+			Promise(
+				function(resolve, reject) {
+					if (tokenOk) {
+						resolve('Token Ok!');
+					} else {
+						reject(tokenMsg);
+					}
+
+				}
+			)
+		;
+		
 	}).catch(function(msg){
 		console.log(msg);
 		$('#authorize').show();
-	})
+	}).then(function(msg){
+		console.log(msg);
+	
 	;
 
 
